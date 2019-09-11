@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/buyansky/dht-go/dht"
 	"net"
 )
 
@@ -20,8 +21,8 @@ func main()  {
 
 
 
-	//udp:=dht.Udp{&net.UDPAddr{IP:net.IPv4(byte(132),byte(232),byte(88),byte(200)),Port:36556}}
-	//udp.SetUdpData([]byte("hello"))
+	udp:=dht.Udp{&net.UDPAddr{IP:net.IPv4(byte(0),byte(0),byte(0),byte(0)),Port:8080}}
+	udp.SetUdpData([]byte("d1：ad2：id20：abcdefghij0123456789e1：q4：ping1：t2：aa1：y1：qe"))
 
 	data:=make([]byte,1024)
 	for{
