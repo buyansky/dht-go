@@ -8,7 +8,7 @@ import (
 
 func main()  {
 
-	uip:=net.IPv4(byte(132),byte(232),byte(88),byte(200))
+	uip:=net.IPv4(byte(127),byte(0),byte(0),byte(1))
 	udpaddr:=net.UDPAddr{IP:uip,Port:36556}
 	listener,e:= net.ListenUDP("udp",&udpaddr)
 
