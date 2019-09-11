@@ -16,7 +16,7 @@ func main()  {
 		fmt.Printf("错误:%v,%s",listener,e.Error())
 	}
 	fmt.Println("连接成功")
-	defer listener.Close()
+	//defer listener.Close()
 
 
 	udp:=dht.Udp{&net.UDPAddr{IP:net.IPv4(byte(132),byte(232),byte(88),byte(200)),Port:36556}}
