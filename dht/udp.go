@@ -19,7 +19,8 @@ func (u *Udp)GetUdpConn()  {
 
 //发送udp 数据
 func (u *Udp)SetUdpData(data []byte)  {
-	raddr:=&net.UDPAddr{IP:net.IPv4(byte(67),byte(215),byte(246),byte(10)),Port:6881}
+	//raddr:=&net.UDPAddr{IP:net.IPv4(byte(67),byte(215),byte(246),byte(10)),Port:6881}
+	raddr:=&net.UDPAddr{IP:net.ParseIP("132.232.80.200"),Port:36556}
 	conn, e := net.DialUDP("udp",nil,raddr)
 	if e != nil {
 		fmt.Printf("连接远程地址错误:%s",e.Error())
