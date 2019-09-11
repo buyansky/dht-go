@@ -7,12 +7,14 @@ import (
 
 func main()  {
 
-	uip:=net.ParseIP("127.0.0.1")
-	udpaddr:=net.UDPAddr{IP:uip,Port:36556}
-	listener,e:= net.ListenUDP("udp",&udpaddr)
+	socket, err := net.ListenUDP("udp4", &net.UDPAddr{
+		IP:   net.IPv4(0, 0, 0, 0),
+		Port: 8080,
+	})
 
-	if e != nil {
-		fmt.Printf("错误:%v,%s",listener,e.Error())
+	if err != nil {
+		fmt.Printf("错误:%v,%s",socket,err.Error())
+		return
 	}
 	fmt.Println("连接成功")
 
@@ -23,7 +25,7 @@ func main()  {
 
 	data:=make([]byte,1024)
 	for{
-		udp, udpAddr, e := listener.ReadFromUDP(data)
+		udp, udpAddr, e := socket.ReadFromUDP(data)
 
 
 		if e != nil {
@@ -32,7 +34,7 @@ func main()  {
 		fmt.Printf("接受到的数据:%d, 地址：%v \r\n",udp,udpAddr)
 
 	}
-	defer listener.Close()
+	defer socket.Close()
 
 
 }
