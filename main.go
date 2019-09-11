@@ -7,7 +7,7 @@ import (
 
 func main()  {
 
-	uip:=net.ParseIP("127.0.0.1")
+	uip:=net.ParseIP("132.232.88.200")
 	udpaddr:=net.UDPAddr{IP:uip,Port:36556}
 	listener,e:= net.ListenUDP("udp",&udpaddr)
 
